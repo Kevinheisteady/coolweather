@@ -62,10 +62,13 @@ public class ChooseAreaActicity extends AppCompatActivity {
                 if(currentLevel == LEVEL_PEOVINCE){
                     selectedProvice = provinceList.get(index);
                     queryCities();
+                }else if(currentLevel == LEVEL_CITY){
+                    selectedCity = cityList.get(index);
+                    queryCounties();
                 }
             }
         });
-
+        queryProvinces();
     }
 
     @Override
@@ -73,13 +76,13 @@ public class ChooseAreaActicity extends AppCompatActivity {
         if(currentLevel == LEVEL_COUNTY){
             queryCities();
         }else if(currentLevel == LEVEL_CITY){
-            queryProvince();
+            queryProvinces();
         }else{
             finish();
         }
     }
 
-    private void queryProvince(){
+    private void queryProvinces(){
         provinceList =  coolWeatherDB.loadProvince();
         /*
         当省份信息变更时怎么做。
@@ -164,7 +167,7 @@ public class ChooseAreaActicity extends AppCompatActivity {
                         public void run() {
                             closeProgressDialog();
                             if("province".equals(type))
-                                queryProvince();
+                                queryProvinces();
                             else if("city".equals(type))
                                 queryCities();
                             else if("county".equals(type))
