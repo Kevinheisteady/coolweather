@@ -183,7 +183,7 @@ public class ChooseAreaActicity extends AppCompatActivity {
                     @Override
                     public void run() {
                         closeProgressDialog();
-                        Toast.makeText(ChooseAreaActicity.this,"加载失败",Toast.LENGTH_SHORT);
+                        Toast.makeText(ChooseAreaActicity.this,"加载失败",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
