@@ -6,4 +6,4 @@ Test merge success
 111
 git fetch test
 333
-555
+666
